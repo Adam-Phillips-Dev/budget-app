@@ -1,12 +1,14 @@
-import express, { Express, Request, Response } from 'express';
+import express, { Express } from 'express';
+import RestRouter from './routes';
+
+
+
 const app: Express = express();
 const port: number = 3000;
 
+app.use('/', RestRouter);
 
-app.get('/', (req: Request, res: Response) => {
-	res.send('Hello world.');
-});
 
 app.listen(port, () => {
-	console.log(`Test app listening on port ${port}.`);
+	console.log(`Budget-App listening on port ${port}...`);
 });
